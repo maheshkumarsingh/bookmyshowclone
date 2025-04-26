@@ -1,29 +1,32 @@
 <div class="container mt-5">
   <!-- ✅ Success/Error Alert -->
-  <div *ngIf="submissionMessage" class="alert" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}" role="alert">
+  <div *ngIf="submissionMessage" class="alert" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}"
+    role="alert">
     {{ submissionMessage }}
   </div>
 
   <!-- 📋 User List -->
   <h2 class="mb-4">User List</h2>
-  <table class="table table-bordered table-hover shadow-sm">
-    <thead class="table-light">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users" class="table-row">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.address }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive" style="min-height: 300px; overflow: auto;">
+    <table class="table table-bordered table-hover shadow-sm">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" class="table-row">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- 🧾 Create User Form -->
   <h2 class="mb-4 mt-5">Create User</h2>
@@ -31,19 +34,22 @@
 
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="text" formControlName="name" id="name" class="form-control" [ngClass]="{'is-invalid': userForm.get('name')?.invalid && userForm.get('name')?.touched}" />
+      <input type="text" formControlName="name" id="name" class="form-control"
+        [ngClass]="{'is-invalid': userForm.get('name')?.invalid && userForm.get('name')?.touched}" />
       <div class="invalid-feedback">Name is required.</div>
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" formControlName="email" id="email" class="form-control" [ngClass]="{'is-invalid': userForm.get('email')?.invalid && userForm.get('email')?.touched}" />
+      <input type="email" formControlName="email" id="email" class="form-control"
+        [ngClass]="{'is-invalid': userForm.get('email')?.invalid && userForm.get('email')?.touched}" />
       <div class="invalid-feedback">Valid email is required.</div>
     </div>
 
     <div class="mb-3">
       <label for="address" class="form-label">Address</label>
-      <textarea formControlName="address" id="address" class="form-control" rows="3" [ngClass]="{'is-invalid': userForm.get('address')?.invalid && userForm.get('address')?.touched}"></textarea>
+      <textarea formControlName="address" id="address" class="form-control" rows="3"
+        [ngClass]="{'is-invalid': userForm.get('address')?.invalid && userForm.get('address')?.touched}"></textarea>
       <div class="invalid-feedback">Address is required.</div>
     </div>
 
